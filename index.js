@@ -9,8 +9,8 @@ const typeDefs = gql`
   """
   type Customer {
     name: String
-    company: Company
     role: String
+    company: Company
   }
 
   type Company {
@@ -20,15 +20,21 @@ const typeDefs = gql`
   }
 
   type Schubrakede {
-    workExamples: String
+    workExamples: [WorkExample]
     workedFor: [Company]
     primer: String
     products: [Product]
     howWeWork: String
-    team: [TeamMember]
     blog: [Blogarticle]
+    team: [TeamMember]
     partners: [Partner]
     legalData: String
+  }
+
+  type WorkExample {
+    images: String
+    description: String
+    client: Company
   }
 
   type Blogarticle {
@@ -40,10 +46,10 @@ const typeDefs = gql`
 
   type Product {
     name: String
+    isRemote: Boolean
     duration: String
     targetGroup: [Company]
     priceRange: Float
-    isRemote: Boolean
   }
 
   type Skill {
