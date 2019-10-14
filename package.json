@@ -1,0 +1,21 @@
+{
+  "name": "graphql_playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js localhost 4000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.9.4",
+    "casual": "^1.6.2",
+    "graphql": "^14.5.7",
+    "nodemon": "^1.19.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  }
+}
