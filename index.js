@@ -1,9 +1,9 @@
-const { ApolloServer, gql } = require("apollo-server");
+const { GraphQLServer } = require("graphql-yoga");
 const casual = require("casual");
 
 // Definitions
 
-const typeDefs = gql`
+const typeDefs = `
   """
   Description
   """
@@ -162,8 +162,11 @@ const resolvers = {
   }
 };
 
-const server = new ApolloServer({ typeDefs, resolvers, mocks });
+const options = {
+  endpoint: "/graphql",
+  subscriptions: "/subscriptions",
+  playground: "/playground"
+};
 
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
-});
+const server = new GraphQLServer({ typeDefs, resolvers, mocks });
+server.start(options, () => console.log("Server is running on localhost:4000"));
